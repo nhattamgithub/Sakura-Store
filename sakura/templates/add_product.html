@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="container d-flex justify-content-center">
+            <div class="col-xl-12 ">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-md-3 register-left">
+                            <img src="{{ url_for('static', filename='images/sakura_logo.png') }}" alt=""/>
+                            
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    {{ form.hidden_tag() }}
+                                    
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600 mt-2"> {{ form.title.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.title.errors %}
+                                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.title.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                            {{ form.title(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600 mt-2">  {{ form.product_img.label() }}</h6>
+                                    <div class="row">
+                                        
+                                        {{ form.product_img(class="form-control-file") }}
+                                        {% if form.product_img.errors %}
+                                        {% for error in form.product_img.errors %}
+                                       
+                                                <span class="text-danger">{{ error }}</span></br>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.desc.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.desc.errors %}
+                                            {{ form.desc(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.desc.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.desc(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.import_price.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.import_price.errors %}
+                                            {{ form.import_price(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.import_price.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.import_price(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.price.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.price.errors %}
+                                            {{ form.price(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.price.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.price(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.quantity.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.quantity.errors %}
+                                            {{ form.quantity(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.quantity.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.quantity(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.supplier.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.supplier.errors %}
+                                            {{ form.supplier(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.supplier.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.supplier(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.material.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.material.errors %}
+                                            {{ form.material(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.material.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.material(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.size.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.size.errors %}
+                                            {{ form.size(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.size.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.size(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.mass.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.mass.errors %}
+                                            {{ form.mass(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.mass.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.mass(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.type.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.type.errors %}
+                                            {{ form.type(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.type.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.type(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div> 
+
+                                    <div class="form-group">
+                                        {{ form.submit(class="btnRegister") }}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

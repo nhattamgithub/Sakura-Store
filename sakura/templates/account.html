@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="container d-flex justify-content-center">
+            <div class="col-xl-12 ">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="{{ image_file }}" class="img-radius" alt="User-Profile-Image"> </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    {{ form.hidden_tag() }}
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600 mt-2"> {{ form.username.label(class="form-control-label") }}</h6>
+                                    <div class="row">
+                                        {% if form.username.errors %}
+                                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.username.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                            {{ form.username(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600 mt-2">  {{ form.picture.label() }}</h6>
+                                    <div class="row ">
+                                        {{ form.picture(class="form-control-file") }}
+                                        {% if form.picture.errors %}
+                                            {% for error in form.picture.errors %}
+                                                <span class="text-danger">{{ error }}</span></br>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.email.label(class="form-control-label") }}</h6>
+                                    <div class="row ">
+                                        {% if form.email.errors %}
+                                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.email.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.email(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.phone_num.label(class="form-control-label") }}</h6>
+                                    <div class="row ">
+                                        {% if form.phone_num.errors %}
+                                            {{ form.phone_num(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.phone_num.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.phone_num(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> {{ form.address.label(class="form-control-label") }}</h6>
+                                    <div class="row ">
+                                        {% if form.address.errors %}
+                                            {{ form.address(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.address.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.address(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        {{ form.submit(class="btnRegister") }}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

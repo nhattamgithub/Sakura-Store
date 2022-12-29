@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="p-0  mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar">
+                <h4 class="products--header text-color">Danh mục sản phẩm</h4>
+                    <div class="list-group">
+                        {% for type_id,type_name in types %}
+                            <a href="{{ url_for('adminfilter',type_id=type_id+1) }}" class="list-group-item text-color ">{{type_name}}
+                                <div class="list-group-arrow">
+                                    <i class="fas fa-angle-right"></i>
+                                </div>
+                            </a>
+                            
+                        {% endfor %}
+                    </div>
+  
+                <a href="{{ url_for('new_product') }}" class=" text-color">
+                    <div class="products--header mt-2">
+                        Thêm sản phẩm
+                        <div class="list-group-arrow">
+                            <i class="fas fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+               
+            </div>
+        </div>
+        <div class="col">
+    
+            <div class="bounding-box">
+                <div class="products-header text-color">SẢN PHẨM HIỆN CÓ</div>
+                <div class="">
+                <table class="table">
+                    <thead class="text-color">
+                        <tr>
+                            
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Cập nhật</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-color tbody mb-2">
+                            
+                            {% for product in products %}
+                    
+                                <tr style="vertical-align: middle;">  
+                                    <td class="product-title"><a class="text-color" href="{{ url_for('product_detail', product_id = product.id) }}">{{product.title}}</a>  </td>
+                                    
+                                    <td>
+                                        <img style="width:100px;" src="{{ url_for('static', filename='profile_pics/' + product.product_img) }}">
+                                    </td>
+                                    <td>{{product.quantity}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td>
+                                        <a class="text-color products-icon" href="{{ url_for('update_product', product_id=product.id) }} " alt = 'update'>
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="text-color products-icon" href="{{ url_for('delete_product', product_id=product.id) }} " alt = 'delete'>
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                
+                            {% endfor %}                                
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        
+        </div>
+   
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+:root {
+
+    --main-color: #f7e1ec;
+    --text-color: rgb(247, 58, 115);
+    --hover-color: #498ff8b2;
+}
+
+* {
+    box-sizing: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: var(--hover-color);
+}
+a{
+    text-decoration: none;
+}
+html {
+    line-height: 1.6rem;
+    font-family: 'Glory', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+.go-to-admin{
+    position: absolute;
+    top: 0;
+    right: 6rem;
+    background-color: var(--text-color);
+    padding: 2px 16px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.hover-color{
+    color:var(--hover-color);
+}
+.btn-color{
+    background-color: var(--text-color);;
+}
+
+.text-color{
+    color: var(--text-color);
+}
+.header{
+    background-color: var(--main-color2);
+}
+
+.box--shadow{
+    box-shadow: 0 1px 3px rgb(255, 208, 208);
+}
+
+.sakura-navbar{
+    background-color: var(--main-color);
+}
+
+.sakura-form{
+    width: 100%;
+    border-radius: 50px;
+    padding: 11px 20px;
+}
+
+.container-fluid{
+    height: 8rem;
+}
+
+.container{
+    max-width: 80%;
+}
+
+.sakura-logo{
+    width: 80%;
+}
+
+.row{
+    align-items: center;
+    margin: 0;
+}
+.col{
+    text-align: center;
+}
+.header-icon{
+    font-size: 2rem;
+    display: block;
+}
+.search-icon{
+    position: absolute;
+    right: 38.5rem;
+    top: 3rem;
+}
+.footer-icon{
+    width: auto;
+}
+.navbar-text{
+    font-size: 0.9rem;
+}

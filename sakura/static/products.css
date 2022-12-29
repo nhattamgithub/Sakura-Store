@@ -1,0 +1,19 @@
+
+.product-title{
+    width: 25%;
+}
+.card-body{
+    width: 100%;
+}
+.products-header{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--main-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.products-icon{
+    font-size: 1.5rem;
+}
